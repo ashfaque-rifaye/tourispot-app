@@ -159,15 +159,19 @@ body {
     top: 0;
     bottom: 0;
     width: 100%;
-    backface-visibility: hidden; }
+    backface-visibility: hidden;
+    box-shadow: 0.2rem 1rem 1rem #80808066; }
     .card__side--front {
       background-color: white; }
     .card__side--back {
       transform: rotateY(180deg); }
-      .card__side--back-1 {
-        background-image: linear-gradient(); }
+      .card__side--back-image {
+        background-image: linear-gradient(to right bottom, #ffb900, #ff7730); }
+  .card__pic-front {
+    background-size: cover;
+    background-image: url("./../../img/nat-5.jpg"); }
   .card:hover .card__side--front {
-    transform: rotateY(180deg); }
+    transform: rotateY(-180deg); }
   .card:hover .card__side--back {
     transform: rotateY(0); }
 
