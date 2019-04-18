@@ -1,0 +1,14 @@
+{
+  "name": "tourispots",
+  "version": "1.0.0",
+  "description": "Landing Page for Tourispots",
+  "main": "index.js",
+  "scripts": {
+    "compile:sass": "node-sass sass/main.scss css/compiled-style.css -w" 
+  },
+  "author": "Ashfaque",
+  "license": "ISC",
+  "devDependencies": {
+    "node-sass": "^4.11.0"
+  }
+}

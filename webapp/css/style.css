@@ -1,0 +1,248 @@
+/*Universal Selector - Apply declarations on each selectors*/
+
+@import url('https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900');
+
+
+*,
+*::after,
+*::before{
+
+	margin: 0;
+	padding: 0; /* This is applied because, we don't want any margins or padding to be added by default with the html elements that are added naturally when we create the elements. This is done to ignore them. */
+	/*box-sizing: border-box;*/ /*Change the box model - Borders and the paddings won't be added to the total width/total height that we specify for a box */
+} 
+
+html{
+	/*font-size : 10px;*/  /*1rem = 10px. 
+	To actual conversion from px --> %, 
+	this is to make conversions based on percentage to pixels for scalability with different browsers.*/
+	font-size: 62.5%;
+}
+body{
+	font-family: "Lato", sans-serif;/* Inherited for all the child elements */
+	font-weight: 400;
+	/* font-size: 16px; converting to rem calculations */
+	line-height: 1.7; /* 1.7 times higher than what the actual line height is */
+	color: #777;
+	padding: 3rem;
+	box-sizing: inherit;
+}
+
+
+.header{
+	height: 100vh;
+	/*background-image: -webkit-linear-gradient(  , #73d56f 80%, #28b485 80%);*/
+	/*background-image: -o-linear-gradient(left, #73d56f 80%, #28b485 80%);*/
+	background-image: linear-gradient(
+		to right bottom,
+		rgba(126, 213, 111, 0.8),
+		rgba(40, 180, 131, 0.8)),
+		url("../img/hero.jpg");
+	background-size: cover; /* Whatever the vidth of the viewput, this will fit in the box */
+	background-position: top;
+	/*The clip-path property in CSS allows you to 
+	specify a specific region of an element to display,
+	rather than showing the complete area. */
+	/*-webkit-clip-path: circle(50% at 50% 50%);
+	clip-path: circle(50% at 60% 50%);*/
+	clip-path: polygon(0% 0%, 100% 0%, 100% 75vh, 0% 100%);
+	position: relative;
+
+}
+
+.logo-box{
+	position: absolute;
+	/* Note - For Top and left to be applied, from where the top and left must be started as a reference.
+	So, we need a reference upon which the top and left needs to act upon. So the parent element must have the 
+	relative postioning in that case. */
+	top: 4rem;
+	left: 4rem;
+}
+
+.logo{
+	height: 3rem; /* Why height? */
+}
+
+
+.header-box{
+	position: absolute;
+	top: 40%;  
+	left: 50%;
+	transform: translate(-50%, -50%);
+	text-align: center;
+
+}
+
+.header-primary{
+	color: #fff;
+	/* A fix for shaky animation - The animation after loading shakes a little coz of transform.
+	This will fix that shaky thing in animations. */
+	backface-visibility: hidden;
+	margin-bottom: 4rem;	
+
+	
+}
+
+.header-primary-main{
+	display: block; /*To give the span element as a block and not an inline element */  
+	text-transform: uppercase;
+	letter-spacing: 2rem;
+	font-size: 3.2rem;
+	font-weight: 700;
+	animation: moveInLeft;
+	animation-duration: 2s;
+	animation-timing-function: linear;
+
+
+}
+.header-primary-sub{
+	display: block;
+	word-spacing: 1.4rem;
+	letter-spacing: 0.5rem;
+	font-size: 2rem;
+	font-weight: 300;
+	animation: moveInRight 3s ease-out;
+	
+
+}
+
+.btn:link, /* Link pesudoelement - For the link type of element*/
+.btn:visited{
+	text-decoration: none; 
+/* This is used initialy to remove the default property 
+of the Link where it appears to be a link with underlined in blue. */
+	text-transform: uppercase;
+	padding: 1rem 2rem;
+	display: inline-block;
+	border-radius: 10rem;
+	transition: all .2s; 
+	animation: moveInTop 3s cubic-bezier(0.43, 1.05, 0.98, 1.02);
+	backface-visibility: hidden;
+	font-size: 1.6rem;
+
+	/* Transition will be helpful to apply on which ever property needs to be animated */
+	/* Here we are animating the button to transorm on hover */
+	/*Keyframes for initial setting up of the element animations. */
+}
+
+.btn:hover{
+	transform: translateY(-0.5rem);
+	box-shadow: 0 0.3rem 0.2rem darkgreen;
+}
+
+.btn:active{
+	transform: translateY(-0.2rem);
+	box-shadow: none;
+
+}
+
+.btn-white{
+	background-color: #fff;
+	color: #777;
+	
+/* Why inline-block and not block?
+An element with display: inline; cannot have a height or a width or a vertical margin. 
+An element with display: block; can have a width, height and margin.
+If you want to add a height to the <em> element, you need to set this element to display: inline-block;. 
+Now you can add a height to the element and every other block style (the block part of inline-block), 
+but it is placed in a sentence (the inline part of inline-block).
+*/
+}
+
+@keyframes moveInLeft{
+	0%{
+		opacity: 0;
+		transform: translateX(-100px);
+	}
+
+	50%{
+		opacity: 0.4;
+		transform: translateX(50px);
+	}
+
+	100%{
+		opacity: 1;
+		transform: translate(0);
+
+	}
+
+}
+
+
+
+@keyframes moveInRight{
+	0%{
+		opacity: 0;
+		transform: translateX(10rem);
+	}
+
+	50%{
+		opacity: 0.4;
+		transform: translateX(-5rem);
+	}
+
+	100%{
+		opacity: 1;
+		transform: translate(0);
+
+	}
+
+}
+
+@keyframes moveInTop{
+	0%{
+		opacity: 0;
+	}
+
+	50%{
+		opacity: 0.4;
+		transform: translateY(5rem);
+	}
+
+	/*70%{
+		opacity: 0.7;
+		transform: translateY(25px);
+	*/
+
+	100%{
+		opacity: 1;
+		transform: translateY(0px);
+	}
+}
+
+/*
+Important guideline.
+For Centering:
+=============
+
+Now to center the Wordings - 
+This must be wrapped inside a box - div element with class - box here.
+To center it, we can give the positioning as absolute.
+position: absolute;
+top: 50%;
+left: 50%;
+transform: translate(-50%, -50%);
+
+Here notice, top 50% and left 50% will only position the element
+from the start portion(where it begins, begining position) of the box with respect to parent element.. 
+But here, to center the entire box by moving it to a place, then we need translate.
+Translate will consider the X and y co-ordiantes not with respect ot parent element, 
+but it considers the element itself i.e the width and height of the element. 
+Thus it translates from the width and the height respectively.
+
+Note: X - Direction --> Left to Right.
+Y - Direction --> Right to Left.
+
+This is very important concept. 
+;
+*/
+
+
+/* TUTORIAL 3 - All the sixes that are marked with px is changed into rems.
+rems - ?
+So, rem is nothing but it takes the default root value of the entire html.
+Here, the font-seze for the entire html that we provide is 10px (for ease of calculation).
+So, px will be calculated on the basis of rem.
+
+This is done to make an easy way to change measurements with one simple settings globally by changing one font-size. 
+This is also to make the pages responsive.

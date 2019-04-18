@@ -1,0 +1,49 @@
+.card{
+	
+	perspective: 150rem;
+	//The perspective can be used on how thie card must be viewed to the user.
+	//Here the card must be moved towards the user.
+	-webkit-moz-perspective: 	150rem;
+	-moz-moz-perspective: 	150rem;
+	-ms-moz-perspective: 	150rem;
+	-o-moz-perspective: 	150rem;
+	-moz-perspective: 	150rem;
+	position: relative;
+	height: 50rem;		
+	
+	&__side{
+		height: 50rem;
+		transition: all 0.7s ease;
+		color: #fff;
+		font-size: 2rem;
+		position: absolute; //to make the two cards one above the other.
+		top: 0;
+		bottom: 0;
+		width: 100%;
+		backface-visibility: hidden;
+		//This property is to hide back part of the element.
+		//Now the parent gets collapsed at this stage and hence the height will be 0.
+		//so we can give the height as above.
+		&--front{
+			background-color: white;
+
+		}
+
+		&--back{
+			transform: rotateY(180deg);
+			&-1{
+			    background-image:
+			    	linear-gradient(to right bottom, #ffb900, #ff7730) ;
+
+			}
+		}
+	}	
+
+	&:hover &__side--front{
+		transform: rotateY(180deg);
+	}
+
+	&:hover &__side--back{
+		transform: rotateY(0);
+	}
+}

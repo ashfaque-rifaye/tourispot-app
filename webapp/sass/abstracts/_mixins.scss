@@ -1,0 +1,10 @@
+@mixin clearfix{
+
+	&:after{
+		content: "";
+		display: table;
+		clear: both;
+	}
+
+	//Why this @mixin clearfix is provided with :after pseudocode and not without after?;
+}
