@@ -51,7 +51,9 @@ body{
 	/*Clips the background an dfits in where exactly the text is present*/
 	color: transparent;
 	/*The text that appear sees to be visible without transparent. So, to show the background that has been clipped with the text, then the text must be transparent. */
-	letter-spacing: 3px;
+	letter-spacing: 0.3rem;
+	margin-bottom: 3rem;
+
 
 	&:hover{
 		//transform: scaleY(1.3);

@@ -1,55 +1,182 @@
-.card{
-	
-	perspective: 150rem;
-	//The perspective can be used on how thie card must be viewed to the user.
-	//Here the card must be moved towards the user.
-	-webkit-moz-perspective: 	150rem;
-	-moz-moz-perspective: 	150rem;
-	-ms-moz-perspective: 	150rem;
-	-o-moz-perspective: 	150rem;
-	-moz-perspective: 	150rem;
-	position: relative;
-	height: 50rem;		
-	
-	&__side{
-		height: 50rem;
-		transition: all 0.7s ease;
-		color: #fff;
-		font-size: 2rem;
-		position: absolute; //to make the two cards one above the other.
-		top: 0;
-		bottom: 0;
-		width: 100%;
-		backface-visibility: hidden;
-		box-shadow: 0.2rem 1rem 1rem #80808066 ;
-		//This property is to hide back part of the element.
-		//Now the parent gets collapsed at this stage and hence the height will be 0.
-		//so we can give the height as above.
-		&--front{
-			background-color: white;
+.card {
+  perspective: 150rem;
+  //The perspective can be used on how thie card must be viewed to the user.
+  //Here the card must be moved towards the user.
+  -webkit-moz-perspective: 150rem;
+  -moz-moz-perspective: 150rem;
+  -ms-moz-perspective: 150rem;
+  -o-moz-perspective: 150rem;
+  -moz-perspective: 150rem;
+  position: relative;
+  height: 50rem;
 
-		}
+  &__side {
+    height: 50rem;
+    transition:   0.7s ease;
+    color: #fff;
+    font-size: 2rem;
+    position: absolute; //to make the two cards one above the other.
+    top: 0;
+    left: 0;
+    width: 100%;
+    backface-visibility: hidden;
+	overflow: hidden;
+	transform-style: preserve-3d;
+    box-shadow: 0.2rem 1rem 1rem #80808066;
+    //This property is to hide back part of the element.
+    //Now the parent gets collapsed at this stage and hence the height will be 0.
+    //so we can give the height as above.
+    &--front {
+	  z-index: 2;
+      background-color: white;
+    }
 
-		&--back{
-			transform: rotateY(180deg);
-			&-image{
-			    background-image:
-			    	linear-gradient(to right bottom, #ffb900, #ff7730) ;
+    &--back {
+      transform: rotateY(180deg);
 
-			}
-		}
-	}	
-	
-	&__pic-front{
-		background-size: cover;
-		background-image: url('./../../img/nat-5.jpg');
+      &-1 {
+        background-image: linear-gradient(to right bottom, #ffb9006b, #ff773091);
+      }
+
+      &-2 {
+        background-image: linear-gradient(to right bottom, #7ed56f59, #28b48599);
+      }
+
+      &-3 {
+        background-image: linear-gradient(to right bottom, #2998ff59, #5643fa85);
+      }
+    }
+  }
+
+  //Front-Side Styling
+  &__pic-front {
+    margin-top: 3rem;
+    background-size: cover;
+    height: 23rem;
+    -webkit-clip-path: polygon(0 0, 100% 0, 100% 80%, 55% 87%, 50% 95%, 50% 87%, 0 95%);
+    //polygon(0 0, 100% 0, 100% 85%, 0 100%);
+    clip-path: polygon(0 0, 100% 0, 100% 80%, 55% 87%, 50% 95%, 50% 87%, 0 95%);
+    &--1 {
+      background-image: 
+		// linear-gradient(to right bottom, #ffb900, #ff7730),
+		linear-gradient(
+          to right bottom,
+          #ffb9006b,
+          #ff773091
+        ),
+        url("../img/nat-5.jpg");
+      background-blend-mode: color-burn;
+    }
+    &--2 {
+      background-image: 
+		// linear-gradient(to right bottom, #ffb900, #ff7730),
+		linear-gradient(
+          to right bottom,
+          #7ed56f59,
+          #28b48599
+        ),
+        url("../img/nat-6.jpg");
+      background-blend-mode: color-burn;
+    }
+    &--3 {
+      background-image: 
+		// linear-gradient(to right bottom, #ffb900, #ff7730), 
+		linear-gradient(
+          to right bottom,
+          #2998ff59, #5643fa85
+        ),
+        url("../img/nat-7.jpg");
+      background-blend-mode: color-burn;
+    }
+  }
+
+  &__heading {
+    text-transform: uppercase;
+    color: #33795d;
+    font-weight: 800;
+    font-family: "Josefin Sans", sans-serif;
+    // -webkit-text-fill-color: transparent;
+    &__img {
+      background-clip: border-box;
+      border: none;
+      box-sizing: border-box;
+      width: 100%;
+      text-align: center;
+      position: absolute;
+      top: 0rem;
+      &-1{
+        background-image: linear-gradient(to right, #ff773091, #ffb9006b);
+      }
+      &-2{
+        background-image: linear-gradient(to right,#28b48599, #7ed56f59
+        );
+      }
+      &-3{
+        background-image: linear-gradient(to right,  
+        #5643fa85,  #2998ff59);
+      }
+      height: 3rem;
+    }
+  }
+
+  &__description {
+    color: black;
+    font-family: "Rancho";
+    text-align: center;
+    margin: 0 auto;
+
+    ul {
+      text-decoration: none;
+      list-style: none;
+
+      li {
+        display: table;
+        margin: auto;
+        &:after,
+        &:not(:last-child) {
+          content: "";
+          border-bottom: 1px solid #eee;
+        }
+      }
+    }
+  }
+
+  &:hover &__side--front {
+    transform: rotateY(-180deg);
+  }
+
+  &:hover &__side--back {
+    transform: rotateY(0);
+  }
+
+  &__price--box {
+    transform: translate(-50%, -50%);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    text-transform: uppercase;
+	text-align: center;
+
+	&__tag{
+	  font-size: 5rem;	
 	}
-
-	&:hover &__side--front{
-		transform: rotateY(-180deg);
-	}
-
-	&:hover &__side--back{
-		transform: rotateY(0);
-	}
+  }
 }
+
+/* // text-transform: uppercase;
+    // color: #fff;
+    // -webkit-text-fill-color: transparent;
+    // // background-color: #ff7730cc;
+    // font-size: 16px;
+    // background-clip: border-box;
+    // border: none;
+    // box-sizing: border-box;
+    // width: 75px;
+    // font-weight: 800;
+    // text-align: right;
+    // position: absolute;
+    // top: 12rem;
+    // left: 15rem;
+    // -webkit-background-clip: text !important;
+    // background-clip: content-box;
+*/

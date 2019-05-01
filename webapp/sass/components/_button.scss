@@ -10,8 +10,7 @@
 		display: inline-block;
 		border-radius: 10rem;
 		transition: all .2s; 
-		animation: moveInTop 3s cubic-bezier(0.43, 1.05, 0.98, 1.02);
-		backface-visibility: hidden;
+		animation: moveInTop 1.5s cubic-bezier(0.43, 1.05, 0.98, 1.02);
 		font-size: 1.6rem;
 
 		
@@ -31,10 +30,13 @@
 	&-white{
 		background-color: $color-white;
 		color: $color-grey-dark;
-		
-
 	}
 
+	&-green{
+		background-color: $color-primary;
+		color: $color-white;
+	
+	}
 }
 
 

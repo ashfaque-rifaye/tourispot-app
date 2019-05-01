@@ -1,0 +1,21 @@
+.story{
+    margin:0 auto;
+    text-align: center;
+    background-color: #fff;
+    box-shadow: 0 1rem 5rem rgba(0, 0, 0, 0.2);
+    width: 70%;
+    padding: 6rem;
+
+    &__shape{
+        float: left;
+        shape-outside: circle(50% at 50% 50%);
+        -webkit-shape-outside: circle(50% at 50% 50%);
+        background-color: yellow;
+        width: 15rem;
+        height: 15rem;    
+        clip-path: circle(50% at 50% 50%);
+        -webkit-clip-path: circle(50% at 50% 50%);
+                                                           
+    }
+    
+}

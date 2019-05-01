@@ -1,4 +1,9 @@
 @import url('https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900');
+@import url('https://fonts.googleapis.com/css?family=Josefin+Sans:300i,400,600,600i,700i&subset=latin-ext');
+@import url('https://fonts.googleapis.com/css?family=Rancho');
+
+
+
 @import "base/base";
 
 @import "abstracts/functions";
@@ -13,6 +18,9 @@
 
 @import "components/button";
 @import "components/compositions";
+@import "components/story";
+
+
 @import "layout/grid";
 
 @import "layout/header";
