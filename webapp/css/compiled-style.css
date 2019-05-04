@@ -104,7 +104,8 @@ body {
     transform: scaleX(0.9);
     text-shadow: 1.5rem 1rem 2rem rgba(0, 0, 0, 0.2);
     transition: all 1.5s;
-    -webkit-transition: all 1.25s; }
+    -webkit-transition: all 1.25s;
+    backface-visibility: hidden; }
 
 .heading-tertiary {
   font-size: 1.6rem;
@@ -143,6 +144,9 @@ body {
     color: green; }
   .feature-box:hover {
     transform: translateY(-1.5rem) scale(1.1); }
+
+.center-text {
+  text-align: center; }
 
 .card {
   perspective: 150rem;
@@ -285,10 +289,8 @@ body {
 
 .section-stories {
   height: 100vh;
-  margin-top: -10rem;
-  padding: 20rem 0;
-  background-size: cover;
-  background-position: top; }
+  position: relative;
+  padding: 5rem 0; }
 
 .btn:link, .btn:visited {
   text-decoration: none;
@@ -366,20 +368,66 @@ body {
 
 .story {
   margin: 0 auto;
-  text-align: center;
+  text-align: left;
   background-color: #fff;
   box-shadow: 0 1rem 5rem rgba(0, 0, 0, 0.2);
-  width: 70%;
-  padding: 6rem; }
+  width: 80%;
+  padding: 3rem 6rem;
+  font-size: 1.2rem;
+  transform: skewX(-12deg); }
   .story__shape {
     float: left;
     shape-outside: circle(50% at 50% 50%);
     -webkit-shape-outside: circle(50% at 50% 50%);
-    background-color: yellow;
     width: 15rem;
     height: 15rem;
     clip-path: circle(50% at 50% 50%);
-    -webkit-clip-path: circle(50% at 50% 50%); }
+    -webkit-clip-path: circle(50% at 50% 50%);
+    transform: translateX(-3rem) skewX(12deg); }
+  .story__img {
+    height: 100%;
+    opacity: 1;
+    transform: translateX(-3.5rem); }
+  .story:hover .story__img {
+    -webkit-filter: blur(3px);
+    -moz-filter: blur(3px);
+    -o-filter: blur(3px);
+    -ms-filter: blur(3px);
+    filter: blur(3px);
+    transition: transform .3s;
+    backface-visibility: hidden;
+    transform: translateX(-3.5rem) scale(1.3); }
+  .story__text {
+    transform: skewX(12deg); }
+  .story__caption {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -20%);
+    text-transform: uppercase;
+    text-align: center;
+    color: #fff;
+    font-size: 1.7rem;
+    opacity: 0;
+    transition: all 0.5s; }
+  .story:hover .story__caption {
+    opacity: 1;
+    transform: translate(-50%, -50%);
+    backface-visibility: hidden; }
+
+.bg-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  z-index: -1;
+  opacity: .2;
+  overflow: hidden; }
+  .bg-video__content {
+    height: 108%;
+    width: 100%;
+    object-fit: cover; }
 
 .row {
   max-width: 114rem;

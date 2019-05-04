@@ -61,6 +61,7 @@ body{
 		text-shadow: 1.5rem 1rem 2rem rgba($color-black, .2);
 		transition: all 1.5s;
 		-webkit-transition: all 1.25s;
+		backface-visibility: hidden;
 	}
 
 
